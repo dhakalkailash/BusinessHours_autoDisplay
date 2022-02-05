@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth_Trial</title>
+
+    <link rel="stylesheet" href="style.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+</head>
+<body>
+
+<table>
+    <th><h1> Medical Library Hours</h1></th>
+<tr id = "1">
+        <td><span class="day">Monday </span></td>
+        <td><span class="start">8:30 am</span></td>  
+        <td><span class="space">--</span></td>        
+        <td><span class="end"> 5:30 pm</span>  </td>
+</tr>
+
+<tr id = "2">
+    <td><span class="day">Tuesday </span></td>
+    <td><span class="start">8:30 am</span></td>
+    <td><span class="space">--</span></td>  
+    <td><span class="end">5:30 pm</span>  </td>
+</tr>
+
+<tr id = "3">
+    <td><span class="day">Wednesday </span></td>
+    <td><span class="start">8:30 am</span></td>
+    <td><span class="space">--</span></td>  
+    <td><span class="end">5:30 pm</span>  </td>
+</tr>
+
+<tr id = "4">
+    <td><span class="day">Thursday </span></td>
+    <td><span class="start">8:30 am</span></td>
+    <td><span class="space">--</span></td>  
+    <td><span class="end">5:30 pm</span>  </td>
+</tr>
+
+<tr id = "5">
+    <td><span class="day">Friday </span></td>
+    <td><span class="start">8:30 am</span></td>
+    <td><span class="space">--</span></td>  
+    <td><span class="end">5:30 pm</span>  </td>
+</tr>
+<tr id = "6">
+    <td><span class="day">Saturday </span></td>
+    <td><span class="start">8:30 am</span></td>
+    <td><span class="space">--</span></td>  
+    <td><span class="end">5:30 pm</span>  </td>
+</tr>
+<tr id = "7">
+    <td><span class="day">Sunday </span></td>
+    <td><span class="start">8:30 am</span></td>
+    <td><span class="space">--</span></td>  
+    <td><span class="end">5:30 pm</span>  </td>
+</tr>
+
+
+<div class="play"><span id="display"></span><br></div>
+<span id="demo"></span>
+<div class="open"><span> We are Open </span> </div>
+<div class="closed"><span>We are Closed</span> </div>
+</table>
+
+
+
+
+<script>
+    //gets the current time.
+  var da = new Date();
+  console.log("da: "+da);
+document.getElementById("display").innerHTML = da.toDateString();
+
+var today = da.getDay();
+console.log("today: "+today);
+
+var dayElem = document.getElementById(today);
+console.log("dayElem: "+dayElem);
+
+
+var x = dayElem.getElementsByClassName("start")[0].innerText;
+console.log("x: "+x);
+
+var z = dayElem.getElementsByClassName("end")[0].innerText;
+console.log("z: "+z);
+
+//var o = parseInt(x,10);
+//var c = parseInt(z,10);
+
+var startTime = Date.parseExact(x, "h:mm tt");
+console.log("startTime: "+startTime);
+
+var endTime = Date.parseExact(z, "h:mm tt");
+console.log("endTime: "+endTime);
+
+if (da.between(startTime, endTime)){
+    $(".open").show();
+    $(".closed").hide();
+}
+else {
+    $(".closed").show();
+    $(".open").hide();
+}
+</script>
+
+
+</body>
+</html>
